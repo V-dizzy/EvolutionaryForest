@@ -751,7 +751,7 @@ class EvolutionaryForestRegressor(RegressorMixin, TransformerMixin, BaseEstimato
         elif isinstance(base_learner, (GBDTLRClassifier)):
             coef = base_learner.gbdt_.feature_importances_[:self.gene_num]
         elif isinstance(base_learner, SVR):
-            coef = np.ones(self.X.shape[1])
+            coef = np.ones(self.gene_num)
         elif isinstance(base_learner, (RidgeDT, LRDTClassifier)):
             coef = base_learner.feature_importance
         elif hasattr(base_learner, 'feature_importances_'):
